@@ -1,5 +1,6 @@
 var datetime = null,
         date = null;
+        
 
 var update = function () {
     date = moment(new Date())
@@ -12,11 +13,29 @@ $(document).ready(function(){
     setInterval(update, 1000);
 });
 
+var thingsToDo = {};
+var opHours = 8;
+var opening = 9;
+var increment = 1;
+var closing = 17;
+const closeHr = 17;
+const openHr = 9;
+const BEFORE = 0;
+var backGround = BEFORE;
+const after = 1;
 function createHTML(hours){
     var stuff = $(
-"<div class='row'>" + "<div class='column1 hour'>" + hours + "</div>" + "<div class='column10'>" + "<p class='details'></p>" + "</div>" + "<div class='column1 saveBtn'>" + "<i class='orderedListTask'></i>" + "</div>" + "</div>"
-
-
+        "<div class='row'>" +
+        "<div class='column1 hour'>" + 
+            hours +
+        "</div>" +
+        "<div class='column10'>" +
+            "<p class='description'></p>"+
+        "</div>" +
+        "<div class='column1 saveBtn'>" +
+            "<i class = 'oi oi-task'></i>" +
+        "</div>" +
+    "</div>"
 
     );
     stuff.appendTo(".container");
@@ -25,16 +44,7 @@ function createHTML(hours){
 
 
 
-var thingsToDo = {};
-var backGround = BEFORE;
-var opHours = 8;
-var opening = 9;
-var increment = 1;
-var closing = 17;
-const closeHr = 17;
-const openHr = 9;
-const before = 0;
-const after = 1;
+
 
 function convertTime(hours) {
     var result;
